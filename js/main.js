@@ -1,13 +1,34 @@
 const app = new Vue({
     el: "#root",
     data: {
-        howManyEmails: 10,
+        lengthMailingList: 10,
         list: {
             visible: false,
             emails: []
         }
     },
-    methods: {}
+    created() {
+        this.getMailingList();
+    },
+    methods: {
+        getMailingList() {
+            if (this.list.emails.length > this.lengthMailingList) {
+                while (this.list.emails.length > this.lengthMailingList) this.slice();
+            }
+            else if (this.list.emails.length < this.lengthMailingList) {
+                for (let i = this.list.emails.length; i < this.lengthMailingList; i++) this.get();
+            }
+        },
+        get() {
+            axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
+                .then((response) => {
+                    this.list.emails.push(response.data.response);
+                });
+        },
+        slice() {
+            this.list.emails = this.list.emails.slice(0, -1);
+        }
+    }
 });
 
 // axios.get("https://flynn.boolean.careers/exercises/api/random/mail")

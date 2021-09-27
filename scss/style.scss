@@ -3,3 +3,39 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-size: 1rem;
+    display: flex;
+    height: 100vh;
+}
+
+ul {
+    list-style: none;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    height: 100%;
+    overflow: hidden;
+    padding: 1em;
+
+    input {
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+    ul {
+        overflow: auto;
+        
+        li {
+            text-align: center;
+            padding: 0.5em;
+            margin: 1.5em;
+        }
+    }
+}
