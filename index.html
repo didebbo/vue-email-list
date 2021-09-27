@@ -16,18 +16,26 @@
 
     <div id="root">
         <input type="number" v-model="lengthMailingList" @change="getMailingList">
-        <ul v-if="list.visible">
-            <li v-for="(email,index) in list.emails" :key="index">
-                <template v-if="email.editMode">
-                    <input type="text" v-model="email.text" @keyup.enter="saveEditedEmail(index)">
-                    <i class="fas fa-times-circle" @click="deleteEmail(index)"></i>
-                </template>
-                <span v-else @click="editEmail(index)">
-                    {{email.text}}
-                </span>
-            </li>
-        </ul>
-        <i v-else class="fas fa-sync-alt"></i>
+        <template v-if="list.visible">
+            <button @click="addEmail">
+                <i class="fas fa-plus-circle"></i>
+            </button>
+            <ul>
+                <li v-for="(email,index) in list.emails" :key="index">
+                    <template v-if="email.editMode">
+                        <input type="text" v-model="email.text" @keyup.enter="saveEditedEmail(index)"
+                            placeholder="Insert email...">
+                        <i class="fas fa-times-circle" @click="deleteEmail(index)"></i>
+                    </template>
+                    <span v-else @click="editEmail(index)">
+                        {{email.text}}
+                    </span>
+                </li>
+            </ul>
+        </template>
+        <template v-else>
+            <i class="fas fa-sync-alt"></i>
+        </template>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"
