@@ -19,6 +19,7 @@
         <ul v-if="list.visible">
             <li v-for="(email,index) in list.emails">{{email}}</li>
         </ul>
+        <i v-else class="fas fa-sync-alt"></i>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js"
