@@ -33,8 +33,3 @@ const app = new Vue({
         }
     }
 });
-
-// axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
-//             .then((response) => {
-//                 this.debug = response.data.response;
-//             });
