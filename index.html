@@ -16,7 +16,7 @@
 
     <div id="root">
         <input type="number" v-model="lengthMailingList" @change="getMailingList">
-        <ul>
+        <ul v-if="list.visible">
             <li v-for="(email,index) in list.emails">{{email}}</li>
         </ul>
     </div>

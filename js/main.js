@@ -1,7 +1,7 @@
 const app = new Vue({
     el: "#root",
     data: {
-        lengthMailingList: 10,
+        lengthMailingList: 200,
         list: {
             visible: false,
             emails: []
@@ -20,9 +20,12 @@ const app = new Vue({
             }
         },
         get() {
+            this.list.visible = false;
             axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
                 .then((response) => {
                     this.list.emails.push(response.data.response);
+                    this.list.visible = false;
+                    if (this.list.emails.length == this.lengthMailingList) this.list.visible = true;
                 });
         },
         slice() {
