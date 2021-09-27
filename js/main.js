@@ -13,13 +13,13 @@ const app = new Vue({
     methods: {
         getMailingList() {
             if (this.list.emails.length > this.lengthMailingList) {
-                while (this.list.emails.length > this.lengthMailingList) this.slice();
+                while (this.list.emails.length > this.lengthMailingList) this.sliceEmail();
             }
             else if (this.list.emails.length < this.lengthMailingList) {
-                for (let i = this.list.emails.length; i < this.lengthMailingList; i++) this.get();
+                for (let i = this.list.emails.length; i < this.lengthMailingList; i++) this.getEmail();
             }
         },
-        get() {
+        getEmail() {
             this.list.visible = false;
             axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
                 .then((response) => {
@@ -32,7 +32,7 @@ const app = new Vue({
                     if (this.list.emails.length == this.lengthMailingList) this.list.visible = true;
                 });
         },
-        slice() {
+        sliceEmail() {
             this.list.emails = this.list.emails.slice(0, -1);
         },
         editEmail(index) {
