@@ -23,8 +23,12 @@ const app = new Vue({
             this.list.visible = false;
             axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
                 .then((response) => {
-                    this.list.emails.push(response.data.response);
-                    this.list.visible = false;
+                    this.list.emails.push(
+                        {
+                            text: response.data.response,
+                            editMode: false
+                        }
+                    );
                     if (this.list.emails.length == this.lengthMailingList) this.list.visible = true;
                 });
         },

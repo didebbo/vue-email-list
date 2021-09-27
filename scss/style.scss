@@ -36,8 +36,10 @@ ul {
         overflow: auto;
         
         li {
+            cursor: pointer;
             text-align: center;
-            margin: 0.2em;
+            margin: 1em 0;
+            // padding: ;
             font-size: 0.8em;
         }
     }

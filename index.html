@@ -17,7 +17,12 @@
     <div id="root">
         <input type="number" v-model="lengthMailingList" @change="getMailingList">
         <ul v-if="list.visible">
-            <li v-for="(email,index) in list.emails">{{email}}</li>
+            <li v-for="(email,index) in list.emails" :key="index">
+                <input v-if="email.editMode" type="text" v-model="email.text" @change="email.editMode = false">
+                <span v-else @click="email.editMode = true">
+                    {{email.text}}
+                </span>
+            </li>
         </ul>
         <i v-else class="fas fa-sync-alt"></i>
     </div>
