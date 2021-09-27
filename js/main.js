@@ -1,7 +1,7 @@
 const app = new Vue({
     el: "#root",
     data: {
-        lengthMailingList: 10,
+        lengthMailingList: 100,
         list: {
             visible: false,
             emails: []
