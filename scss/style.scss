@@ -8,6 +8,7 @@ body {
     font-size: 1rem;
     display: flex;
     height: 100vh;
+    overflow: hidden;
 }
 
 ul {
@@ -20,6 +21,7 @@ ul {
     align-items: center;
     margin: auto;
     height: 100%;
+    overflow: hidden;
     padding: 1em;
 
     input {
@@ -29,7 +31,9 @@ ul {
     }
 
     ul {
-        margin: 1em;
+        margin: 1em 0;
+        padding: 0 1em;
+        overflow: auto;
         
         li {
             text-align: center;
