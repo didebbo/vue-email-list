@@ -1,7 +1,7 @@
 const app = new Vue({
     el: "#root",
     data: {
-        lengthMailingList: 100,
+        lengthMailingList: 10,
         list: {
             visible: false,
             emails: []
@@ -34,6 +34,16 @@ const app = new Vue({
         },
         slice() {
             this.list.emails = this.list.emails.slice(0, -1);
+        },
+        editEmail(index) {
+            this.list.emails.at(index).editMode = true;
+        },
+        saveEditedEmail(index) {
+            if (this.list.emails.at(index).text == "") this.deleteEmail(index)
+            this.list.emails.at(index).editMode = false;
+        },
+        deleteEmail(index) {
+            this.list.emails = this.list.emails.filter((email, i) => index != i);
         }
     }
 });
