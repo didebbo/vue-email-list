@@ -44,6 +44,7 @@ const app = new Vue({
         },
         deleteEmail(index) {
             this.list.emails = this.list.emails.filter((email, i) => index != i);
+            this.lengthMailingList = this.list.emails.length;
         }
     }
 });

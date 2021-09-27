@@ -18,11 +18,13 @@
         <input type="number" v-model="lengthMailingList" @change="getMailingList">
         <ul v-if="list.visible">
             <li v-for="(email,index) in list.emails" :key="index">
-                <input v-if="email.editMode" type="text" v-model="email.text" @change="saveEditedEmail(index)">
+                <template v-if="email.editMode">
+                    <input type="text" v-model="email.text" @keyup.enter="saveEditedEmail(index)">
+                    <i class="fas fa-times-circle" @click="deleteEmail(index)"></i>
+                </template>
                 <span v-else @click="editEmail(index)">
                     {{email.text}}
                 </span>
-                <button @click="deleteEmail(index)">Delete</button>
             </li>
         </ul>
         <i v-else class="fas fa-sync-alt"></i>
