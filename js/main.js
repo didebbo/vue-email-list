@@ -43,7 +43,7 @@ const app = new Vue({
             this.list.emails.at(index).editMode = false;
         },
         deleteEmail(index) {
-            this.list.emails = this.list.emails.filter((email, i) => index != i);
+            this.list.emails.splice(index, 1);
             this.lengthMailingList = this.list.emails.length;
         },
         addEmail() {
