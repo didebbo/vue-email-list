@@ -12,12 +12,14 @@ const app = new Vue({
     },
     methods: {
         getMailingList() {
-            if (this.list.emails.length > this.lengthMailingList) {
+            if (this.list.emails.length > parseInt(this.lengthMailingList)) {
                 while (this.list.emails.length > this.lengthMailingList) this.sliceEmail();
             }
-            else if (this.list.emails.length < this.lengthMailingList) {
-                console.log(this.list.emails.length, this.lengthMailingList);
-                for (let i = this.list.emails.length; i < this.lengthMailingList; i++) this.getEmail();
+            else if (this.list.emails.length < parseInt(this.lengthMailingList)) {
+                for (let i = this.list.emails.length; i < parseInt(this.lengthMailingList); i++) {
+                    console.log(i, parseInt(this.lengthMailingList));
+                    this.getEmail();
+                }
             }
         },
         getEmail() {
