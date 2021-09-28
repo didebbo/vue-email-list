@@ -16,6 +16,7 @@ const app = new Vue({
                 while (this.list.emails.length > this.lengthMailingList) this.sliceEmail();
             }
             else if (this.list.emails.length < this.lengthMailingList) {
+                console.log(this.list.emails.length, this.lengthMailingList);
                 for (let i = this.list.emails.length; i < this.lengthMailingList; i++) this.getEmail();
             }
         },

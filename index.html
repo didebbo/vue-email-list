@@ -28,7 +28,7 @@
                         <i class="fas fa-times-circle" @click="deleteEmail(index)"></i>
                     </template>
                     <span v-else @click="editEmail(index)">
-                        {{email.text}}
+                        {{`${index + 1}: ${email.text}`}}
                     </span>
                 </li>
             </ul>
