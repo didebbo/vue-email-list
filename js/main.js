@@ -47,12 +47,14 @@ const app = new Vue({
             this.lengthMailingList = this.list.emails.length;
         },
         addEmail() {
-            this.list.emails.push(
+            this.list.emails = [
                 {
                     text: "",
                     editMode: true
-                }
-            );
+                },
+                ...this.list.emails
+            ];
+            this.lengthMailingList = this.list.emails.length;
         }
     }
 });
